@@ -1,0 +1,41 @@
+<html>
+    <style>
+        body{
+            text-align: center;
+            color: red;
+        }
+        ul{
+            display: inline-block;
+        }
+        li{
+            list-style-type:circle ;
+            text-align: center;
+        }
+    </style>
+    <head>
+        <script src="https://kit.fontawesome.com/9e675210cb.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="ok.css">
+    </head>
+    <body>
+        <h1><i class="fa-solid fa-address-book"></i>Student Data :</h1>
+        <ul>
+            <% for(let i of std_data) { %>
+                <li>
+                    <i class="fa-solid fa-user fa-beat-fade"></i>
+                    <%= i.name %>
+                    <%= i.rollno %>
+                    <br>
+                    <div>
+                        <a href="/delete-contact/<%=i.rollno%>"><i class="fa-solid fa-trash-can"></i></a>
+                    </div>
+                </li>
+            
+            <% } %>
+        </ul>
+        <form action="add-data" method="post">
+            <input type="text" name="fullname" placeholder="Enter your name :" required>
+            <input type="text" name="rollno" placeholder="Enter your rollno :" required>
+            <button type="submit">Add student</button>
+        </form>
+    </body>
+</html>
